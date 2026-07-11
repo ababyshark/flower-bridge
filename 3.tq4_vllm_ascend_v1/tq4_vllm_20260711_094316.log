@@ -1,0 +1,38 @@
+INFO 07-11 09:43:22 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 07-11 09:43:22 [__init__.py:46] - ascend -> vllm_ascend:register
+INFO 07-11 09:43:22 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 07-11 09:43:22 [__init__.py:238] Platform plugin ascend is activated
+2026-07-11 09:43:26,479 - 103321 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.20.2+empty: default 1
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/vllm-workspace/vllm/vllm/entrypoints/openai/api_server.py", line 714, in <module>
+    parser = make_arg_parser(parser)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/vllm-workspace/vllm/vllm/entrypoints/openai/cli_args.py", line 359, in make_arg_parser
+    parser = AsyncEngineArgs.add_cli_args(parser)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/vllm-workspace/vllm/vllm/engine/arg_utils.py", line 2427, in add_cli_args
+    load_general_plugins()
+  File "/vllm-workspace/vllm/vllm/plugins/__init__.py", line 82, in load_general_plugins
+    func()
+  File "/vllm-workspace/vllm-ascend/vllm_ascend/__init__.py", line 45, in register_connector
+    _ensure_global_patch()
+  File "/vllm-workspace/vllm-ascend/vllm_ascend/__init__.py", line 34, in _ensure_global_patch
+    adapt_patch(is_global_patch=True)
+  File "/vllm-workspace/vllm-ascend/vllm_ascend/utils.py", line 492, in adapt_patch
+    from vllm_ascend.patch import platform  # noqa: F401
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/vllm-workspace/vllm-ascend/vllm_ascend/patch/platform/__init__.py", line 20, in <module>
+    import vllm_ascend.patch.platform.patch_distributed  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/vllm-workspace/vllm-ascend/vllm_ascend/patch/platform/patch_distributed.py", line 88, in <module>
+    if get_ascend_device_type() == AscendDeviceType._310P:
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/vllm-workspace/vllm-ascend/vllm_ascend/utils.py", line 874, in get_ascend_device_type
+    _init_ascend_device_type()
+  File "/vllm-workspace/vllm-ascend/vllm_ascend/utils.py", line 843, in _init_ascend_device_type
+    from vllm_ascend import _build_info  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ImportError: cannot import name '_build_info' from 'vllm_ascend' (/vllm-workspace/vllm-ascend/vllm_ascend/__init__.py)
+[ERROR] 2026-07-11-09:43:26 (PID:103321, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception

@@ -1,0 +1,274 @@
+nohup: ignoring input
+============================================
+ Mooncake tq4-rc1 Build
+ Source: /vllm-workspace/Mooncake
+ Build:  /vllm-workspace/Mooncake/build
+============================================
+=== Installing build dependencies ===
+=== CMake configure (USE_ASCEND_DIRECT=ON) ===
+-- The CXX compiler identification is GNU 11.4.0
+-- The C compiler identification is GNU 11.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found JsonCpp: JsonCpp::JsonCpp
+-- Found GLOG: glog::glog
+CMAKE_BUILD_TYPE: RelWithDebInfo
+-- [limit_jobs] Available memory: 3012220 MB, CPU cores: 640
+-- [limit_jobs] Compile jobs: 640 (1500 MB/job), Link jobs: 640 (4000 MB/job)
+-- [limit_jobs] Hint: use -G Ninja for automatic compile/link parallelism separation
+-- [limit_jobs] With Make, recommend: cmake --build . -j640
+-- Event-driven completion is disabled
+-- Use env ASCEND_HOME_PATH
+-- Http as metadata server support is enabled
+-- metrics is enabled
+YLT is imported by find_package
+-- -------------YLT CONFIG SETTING-------------
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- YLT_ENABLE_DL: ON
+-- YLT_ENABLE_SSL: OFF
+-- YLT_ENABLE_NTLS: OFF
+-- YLT_ENABLE_PMR: OFF
+-- YLT_ENABLE_IO_URING: OFF
+-- YLT_ENABLE_STRUCT_PACK_UNPORTABLE_TYPE: OFF
+-- YLT_ENABLE_STRUCT_PACK_OPTIMIZE: OFF
+-- --------------------------------------------
+CMake Deprecation Warning at extern/pybind11/CMakeLists.txt:13 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- pybind11 v2.13.6 
+CMake Deprecation Warning at extern/pybind11/tools/FindPythonLibsNew.cmake:110 (cmake_policy):
+  The OLD behavior for policy CMP0148 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+Call Stack (most recent call first):
+  extern/pybind11/tools/pybind11Tools.cmake:50 (find_package)
+  extern/pybind11/tools/pybind11Common.cmake:228 (include)
+  extern/pybind11/CMakeLists.txt:251 (include)
+
+
+-- Found PythonInterp: python3 (found suitable version "3.11.15", minimum required is "3.7")
+-- Found PythonLibs: /usr/local/python3.11.15/lib/libpython3.11.so
+-- Performing Test HAS_FLTO
+-- Performing Test HAS_FLTO - Success
+-- USE_NOF=OFF, NoF SSD pool support is disabled
+-- Found ASIO at: /usr/local/include
+-- Found Python3: /usr/local/python3.11.15/bin/python3.11 (found version "3.11.15") found components: Interpreter Development Development.Module Development.Embed
+-- Ascend support fabric mem.
+-- Found library: /usr/local/Ascend/cann-9.0.0/aarch64-linux/lib64/libmetadef.so
+-- Found CURL: /usr/lib/aarch64-linux-gnu/libcurl.so (found version "7.81.0")
+-- Mooncake Store will be built
+-- Store HA backends are disabled
+-- AWS SDK not found, S3 functionality will be disabled
+-- Found xxHash: include=/usr/include lib=/usr/lib/aarch64-linux-gnu/libxxhash.so
+-- io_uring: Enabled for mooncake_store
+/usr/local/Ascend/cann-9.0.0/python/site-packages
+/usr/local/Ascend/cann-9.0.0/python/site-packages
+-- Configuring done (2.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: /vllm-workspace/Mooncake/build
+=== Building (make -j) ===
+[  1%] Building CXX object mooncake-common/src/CMakeFiles/asio_shared.dir/asio_impl.cpp.o
+[  2%] Linking CXX shared library ../libasio.so
+[  2%] Built target asio_shared
+[  3%] Building CXX object mooncake-common/src/CMakeFiles/mooncake_common.dir/default_config.cpp.o
+[  4%] Building CXX object mooncake-common/src/CMakeFiles/mooncake_common.dir/environ.cpp.o
+[  5%] Linking CXX shared library libmooncake_common.so
+[  5%] Built target mooncake_common
+[  6%] Building CXX object mooncake-transfer-engine/src/transport/tcp_transport/CMakeFiles/tcp_transport.dir/tcp_transport.cpp.o
+[  6%] Built target tcp_transport
+[  7%] Building CXX object mooncake-transfer-engine/src/transport/rdma_transport/CMakeFiles/rdma_transport.dir/endpoint_store.cpp.o
+[  8%] Building CXX object mooncake-transfer-engine/src/transport/rdma_transport/CMakeFiles/rdma_transport.dir/rdma_context.cpp.o
+[  9%] Building CXX object mooncake-transfer-engine/src/transport/rdma_transport/CMakeFiles/rdma_transport.dir/rdma_endpoint.cpp.o
+[  9%] Building CXX object mooncake-transfer-engine/src/transport/rdma_transport/CMakeFiles/rdma_transport.dir/rdma_transport.cpp.o
+[ 10%] Building CXX object mooncake-transfer-engine/src/transport/rdma_transport/CMakeFiles/rdma_transport.dir/worker_pool.cpp.o
+[ 10%] Built target rdma_transport
+[ 11%] Building CXX object mooncake-transfer-engine/src/transport/rpc_communicator/CMakeFiles/rpc_communicator.dir/rpc_communicator.cpp.o
+In file included from /vllm-workspace/Mooncake/mooncake-transfer-engine/src/transport/rpc_communicator/rpc_communicator.cpp:1:
+/vllm-workspace/Mooncake/mooncake-transfer-engine/include/transport/rpc_communicator/rpc_communicator.h:33:7: warning: 'mooncake::RpcCommunicator' declared with greater visibility than the type of its field 'mooncake::RpcCommunicator::py_callback_' [-Wattributes]
+   33 | class RpcCommunicator {
+      |       ^~~~~~~~~~~~~~~
+/vllm-workspace/Mooncake/mooncake-transfer-engine/src/transport/rpc_communicator/rpc_communicator.cpp: In member function 'void mooncake::py_rpc_context::response_msg(pybind11::buffer, pybind11::object)':
+/vllm-workspace/Mooncake/mooncake-transfer-engine/src/transport/rpc_communicator/rpc_communicator.cpp:26:18: warning: 'mooncake::py_rpc_context::response_msg(pybind11::buffer, pybind11::object)::<lambda(const std::error_code&, std::size_t)>' declared with greater visibility than the type of its field 'mooncake::py_rpc_context::response_msg(pybind11::buffer, pybind11::object)::<lambda(const std::error_code&, std::size_t)>::<done capture>' [-Wattributes]
+   26 |             [done](const std::error_code& ec, std::size_t) {
+      |                  ^
+[ 12%] Building CXX object mooncake-transfer-engine/src/transport/rpc_communicator/CMakeFiles/rpc_communicator.dir/rpc_interface.cpp.o
+In file included from /vllm-workspace/Mooncake/mooncake-transfer-engine/src/transport/rpc_communicator/rpc_interface.cpp:2:
+/vllm-workspace/Mooncake/mooncake-transfer-engine/include/transport/rpc_communicator/rpc_communicator.h:33:7: warning: 'mooncake::RpcCommunicator' declared with greater visibility than the type of its field 'mooncake::RpcCommunicator::py_callback_' [-Wattributes]
+   33 | class RpcCommunicator {
+      |       ^~~~~~~~~~~~~~~
+/vllm-workspace/Mooncake/mooncake-transfer-engine/src/transport/rpc_communicator/rpc_interface.cpp:19:21: warning: 'mooncake::RpcInterface::Impl' declared with greater visibility than the type of its field 'mooncake::RpcInterface::Impl::data_receive_callback' [-Wattributes]
+   19 | class RpcInterface::Impl {
+      |                     ^~~~
+/vllm-workspace/Mooncake/mooncake-transfer-engine/src/transport/rpc_communicator/rpc_interface.cpp:19:21: warning: 'mooncake::RpcInterface::Impl' declared with greater visibility than the type of its field 'mooncake::RpcInterface::Impl::tensor_receive_callback' [-Wattributes]
+[ 12%] Built target rpc_communicator
+[ 13%] Building CXX object mooncake-transfer-engine/src/transport/CMakeFiles/transport.dir/transport.cpp.o
+[ 13%] Built target transport
+[ 13%] Building CXX object mooncake-transfer-engine/src/transport/ascend_transport/CMakeFiles/ascend_transport.dir/ascend_allocator.cpp.o
+[ 14%] Building CXX object mooncake-transfer-engine/src/transport/ascend_transport/CMakeFiles/ascend_transport.dir/ascend_direct_transport/ascend_direct_transport.cpp.o
+[ 15%] Building CXX object mooncake-transfer-engine/src/transport/ascend_transport/CMakeFiles/ascend_transport.dir/ascend_direct_transport/async_transfer_executor.cpp.o
+[ 16%] Building CXX object mooncake-transfer-engine/src/transport/ascend_transport/CMakeFiles/ascend_transport.dir/ascend_direct_transport/context_manager.cpp.o
+[ 16%] Building CXX object mooncake-transfer-engine/src/transport/ascend_transport/CMakeFiles/ascend_transport.dir/ascend_direct_transport/local_copy_engine.cpp.o
+[ 17%] Building CXX object mooncake-transfer-engine/src/transport/ascend_transport/CMakeFiles/ascend_transport.dir/ascend_direct_transport/slice_dispatcher.cpp.o
+[ 18%] Building CXX object mooncake-transfer-engine/src/transport/ascend_transport/CMakeFiles/ascend_transport.dir/ascend_direct_transport/sync_transfer_executor.cpp.o
+[ 19%] Building CXX object mooncake-transfer-engine/src/transport/ascend_transport/CMakeFiles/ascend_transport.dir/ascend_direct_transport/transfer_executor_base.cpp.o
+[ 19%] Building CXX object mooncake-transfer-engine/src/transport/ascend_transport/CMakeFiles/ascend_transport.dir/ascend_direct_transport/utils.cpp.o
+[ 20%] Linking CXX shared library ascend_transport.so
+[ 20%] Built target ascend_transport
+[ 20%] Building CXX object mooncake-transfer-engine/src/common/base/CMakeFiles/base.dir/status.cpp.o
+[ 21%] Linking CXX static library libbase.a
+[ 21%] Built target base
+[ 22%] Building CXX object mooncake-transfer-engine/src/CMakeFiles/transfer_engine.dir/config.cpp.o
+[ 23%] Building CXX object mooncake-transfer-engine/src/CMakeFiles/transfer_engine.dir/memory_location.cpp.o
+[ 24%] Building CXX object mooncake-transfer-engine/src/CMakeFiles/transfer_engine.dir/multi_transport.cpp.o
+[ 24%] Building CXX object mooncake-transfer-engine/src/CMakeFiles/transfer_engine.dir/topology.cpp.o
+[ 25%] Building CXX object mooncake-transfer-engine/src/CMakeFiles/transfer_engine.dir/transfer_engine.cpp.o
+[ 26%] Building CXX object mooncake-transfer-engine/src/CMakeFiles/transfer_engine.dir/transfer_engine_c.cpp.o
+[ 27%] Building CXX object mooncake-transfer-engine/src/CMakeFiles/transfer_engine.dir/transfer_engine_impl.cpp.o
+/vllm-workspace/Mooncake/mooncake-transfer-engine/src/transfer_engine_impl.cpp:65:20: warning: 'std::string mooncake::loadTopologyJsonFile(const string&)' defined but not used [-Wunused-function]
+   65 | static std::string loadTopologyJsonFile(const std::string& path) {
+      |                    ^~~~~~~~~~~~~~~~~~~~
+[ 27%] Building CXX object mooncake-transfer-engine/src/CMakeFiles/transfer_engine.dir/transfer_metadata.cpp.o
+[ 28%] Building CXX object mooncake-transfer-engine/src/CMakeFiles/transfer_engine.dir/transfer_metadata_dump.cpp.o
+[ 29%] Building CXX object mooncake-transfer-engine/src/CMakeFiles/transfer_engine.dir/transfer_metadata_plugin.cpp.o
+[ 30%] Linking CXX shared library libtransfer_engine.so
+[ 30%] Built target transfer_engine
+[ 31%] Building CXX object mooncake-transfer-engine/example/CMakeFiles/transfer_engine_bench.dir/transfer_engine_bench.cpp.o
+[ 32%] Linking CXX executable transfer_engine_bench
+[ 32%] Built target transfer_engine_bench
+[ 33%] Building CXX object mooncake-transfer-engine/example/CMakeFiles/transfer_engine_validator.dir/transfer_engine_validator.cpp.o
+[ 34%] Linking CXX executable transfer_engine_validator
+[ 34%] Built target transfer_engine_validator
+[ 34%] Building CXX object mooncake-transfer-engine/example/CMakeFiles/transfer_engine_bench_with_notify.dir/transfer_engine_bench_with_notify.cpp.o
+[ 35%] Linking CXX executable transfer_engine_bench_with_notify
+[ 35%] Built target transfer_engine_bench_with_notify
+[ 36%] Building CXX object mooncake-transfer-engine/example/CMakeFiles/memory_pool.dir/memory_pool.cpp.o
+[ 37%] Linking CXX executable memory_pool
+[ 37%] Built target memory_pool
+[ 37%] Building CXX object mooncake-transfer-engine/example/CMakeFiles/transfer_engine_ascend_direct_perf.dir/transfer_engine_ascend_direct_perf.cpp.o
+[ 38%] Linking CXX executable transfer_engine_ascend_direct_perf
+[ 38%] Built target transfer_engine_ascend_direct_perf
+[ 39%] Building CXX object mooncake-store/src/cachelib_memory_allocator/CMakeFiles/cachelib_memory_allocator.dir/AllocationClass.cpp.o
+[ 40%] Building CXX object mooncake-store/src/cachelib_memory_allocator/CMakeFiles/cachelib_memory_allocator.dir/MemoryAllocator.cpp.o
+[ 41%] Building CXX object mooncake-store/src/cachelib_memory_allocator/CMakeFiles/cachelib_memory_allocator.dir/MemoryPool.cpp.o
+[ 41%] Building CXX object mooncake-store/src/cachelib_memory_allocator/CMakeFiles/cachelib_memory_allocator.dir/MemoryPoolManager.cpp.o
+[ 42%] Building CXX object mooncake-store/src/cachelib_memory_allocator/CMakeFiles/cachelib_memory_allocator.dir/Slab.cpp.o
+[ 43%] Building CXX object mooncake-store/src/cachelib_memory_allocator/CMakeFiles/cachelib_memory_allocator.dir/SlabAllocator.cpp.o
+[ 44%] Linking CXX static library libcachelib_memory_allocator.a
+[ 44%] Built target cachelib_memory_allocator
+[ 45%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/allocator.cpp.o
+[ 46%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/master_service.cpp.o
+[ 46%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/client_service.cpp.o
+[ 47%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/client_metric.cpp.o
+[ 48%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/types.cpp.o
+[ 49%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/master_client.cpp.o
+[ 49%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/utils.cpp.o
+[ 50%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/mmap_arena.cpp.o
+[ 51%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/master_metric_manager.cpp.o
+[ 52%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/storage_backend.cpp.o
+[ 52%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/thread_pool.cpp.o
+[ 53%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/etcd_helper.cpp.o
+[ 54%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/segment.cpp.o
+[ 55%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/transfer_task.cpp.o
+[ 55%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/rpc_service.cpp.o
+[ 56%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/offset_allocator.cpp.o
+[ 57%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/posix_file.cpp.o
+[ 58%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/client_buffer.cpp.o
+[ 59%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/aligned_client_buffer.cpp.o
+[ 59%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/real_client.cpp.o
+/vllm-workspace/Mooncake/mooncake-store/src/real_client.cpp: In member function 'std::vector<tl::expected<long int, mooncake::ErrorCode> > mooncake::RealClient::batch_get_into_internal(const std::vector<std::__cxx11::basic_string<char> >&, const std::vector<void*>&, const std::vector<long unsigned int>&)':
+/vllm-workspace/Mooncake/mooncake-store/src/real_client.cpp:4577:10: warning: unused variable 'elapsed_time' [-Wunused-variable]
+ 4577 |     auto elapsed_time = std::chrono::duration_cast<std::chrono::microseconds>(
+      |          ^~~~~~~~~~~~
+/vllm-workspace/Mooncake/mooncake-store/src/real_client.cpp:4580:10: warning: unused variable 'read_store_time' [-Wunused-variable]
+ 4580 |     auto read_store_time =
+      |          ^~~~~~~~~~~~~~~
+[ 60%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/dummy_client.cpp.o
+[ 61%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/shm_helper.cpp.o
+[ 62%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/http_metadata_server.cpp.o
+[ 62%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/file_storage.cpp.o
+[ 63%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/serialize/serializer.cpp.o
+[ 64%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/leadership/leader_coordinator_factory.cpp.o
+[ 65%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/leadership/backends/etcd/etcd_leader_coordinator.cpp.o
+[ 65%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/common/redis/redis_connection.cpp.o
+[ 66%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/leadership/backends/redis/redis_leader_coordinator.cpp.o
+[ 67%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/leadership/master_service_supervisor.cpp.o
+[ 68%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/standby_controller.cpp.o
+[ 68%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/snapshot/catalog_backed_snapshot_provider.cpp.o
+[ 69%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/snapshot/object/snapshot_object_store.cpp.o
+[ 70%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/snapshot/object/backends/local/local_file_snapshot_object_store.cpp.o
+[ 71%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/snapshot/object/backends/s3/s3_snapshot_object_store.cpp.o
+[ 72%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/snapshot/catalog/backends/embedded/embedded_snapshot_catalog_store.cpp.o
+[ 72%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/snapshot/catalog/backends/redis/redis_snapshot_catalog_store.cpp.o
+[ 73%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/utils/type_util.cpp.o
+[ 74%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/utils/file_util.cpp.o
+[ 75%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/task_manager.cpp.o
+[ 75%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/local_hot_cache.cpp.o
+[ 76%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/oplog/oplog_manager.cpp.o
+[ 77%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/oplog/etcd_oplog_store.cpp.o
+[ 78%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/oplog/etcd_oplog_change_notifier.cpp.o
+[ 78%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/oplog/oplog_serializer.cpp.o
+[ 79%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/oplog/oplog_store_factory.cpp.o
+[ 80%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/oplog/oplog_replicator.cpp.o
+[ 81%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/oplog/oplog_applier.cpp.o
+[ 81%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/oplog/localfs_oplog_store.cpp.o
+[ 82%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha/oplog/polling_oplog_change_notifier.cpp.o
+[ 83%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/hot_standby_service.cpp.o
+[ 84%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/standby_state_machine.cpp.o
+[ 84%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/ha_metric_manager.cpp.o
+[ 85%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/store_c.cpp.o
+[ 86%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/memory_alloc.cpp.o
+[ 87%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/engram/engram_store.cpp.o
+[ 88%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_store.dir/uring_file.cpp.o
+[ 88%] Linking CXX shared library libmooncake_store.so
+[ 88%] Built target mooncake_store
+[ 88%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_master.dir/master.cpp.o
+[ 89%] Linking CXX executable mooncake_master
+[ 89%] Built target mooncake_master
+[ 89%] Building CXX object mooncake-store/src/CMakeFiles/mooncake_client.dir/real_client_main.cpp.o
+[ 90%] Linking CXX executable mooncake_client
+[ 90%] Built target mooncake_client
+[ 91%] Building CXX object mooncake-store/benchmarks/CMakeFiles/allocator_bench.dir/allocator_bench.cpp.o
+[ 92%] Linking CXX executable allocator_bench
+[ 92%] Built target allocator_bench
+[ 92%] Building CXX object mooncake-store/benchmarks/CMakeFiles/master_bench.dir/master_bench.cpp.o
+[ 93%] Linking CXX executable master_bench
+[ 93%] Built target master_bench
+[ 94%] Building CXX object mooncake-store/benchmarks/CMakeFiles/file_interface_bench.dir/file_interface_bench.cpp.o
+[ 95%] Linking CXX executable file_interface_bench
+[ 95%] Built target file_interface_bench
+[ 95%] Building CXX object mooncake-store/benchmarks/CMakeFiles/storage_backend_bench.dir/storage_backend_bench.cpp.o
+[ 96%] Linking CXX executable storage_backend_bench
+[ 96%] Built target storage_backend_bench
+[ 96%] Building CXX object mooncake-store/benchmarks/CMakeFiles/allocation_strategy_bench.dir/allocation_strategy_bench.cpp.o
+[ 97%] Linking CXX executable allocation_strategy_bench
+[ 97%] Built target allocation_strategy_bench
+[ 97%] Building CXX object mooncake-integration/CMakeFiles/engine.dir/transfer_engine/transfer_engine_py.cpp.o
+[ 98%] Linking CXX shared module engine.cpython-311-aarch64-linux-gnu.so
+[ 98%] Built target engine
+[ 99%] Building CXX object mooncake-integration/CMakeFiles/store.dir/store/store_py.cpp.o
+[100%] Building CXX object mooncake-integration/CMakeFiles/store.dir/store/engram_store_py.cpp.o
+[100%] Linking CXX shared module store.cpython-311-aarch64-linux-gnu.so
+[100%] Built target store
+
+=== Build complete ===
+  Next: bash install.sh

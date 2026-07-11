@@ -1,0 +1,467 @@
+INFO 07-10 08:23:14 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 07-10 08:23:14 [__init__.py:46] - ascend -> vllm_ascend:register
+INFO 07-10 08:23:14 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 07-10 08:23:14 [__init__.py:238] Platform plugin ascend is activated
+2026-07-10 08:23:18,715 - 20670 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.20.2+empty: default 1
+INFO 07-10 08:23:19 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 07-10 08:23:19 [nixl_utils.py:34] NIXL is not available
+WARNING 07-10 08:23:19 [nixl_utils.py:44] NIXL agent config is not available
+WARNING 07-10 08:23:19 [registry.py:945] Model architecture DeepseekV4ForCausalLM is already registered, and will be overwritten by the new model class vllm_ascend.models.deepseek_v4:AscendDeepseekV4ForCausalLM.
+WARNING 07-10 08:23:19 [registry.py:945] Model architecture DeepSeekV4MTPModel is already registered, and will be overwritten by the new model class vllm_ascend.models.deepseek_v4_mtp:DeepSeekV4MTP.
+INFO 07-10 08:23:19 [__init__.py:110] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader`
+INFO 07-10 08:23:19 [__init__.py:110] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork`
+(APIServer pid=20670) INFO 07-10 08:23:19 [utils.py:299] 
+(APIServer pid=20670) INFO 07-10 08:23:19 [utils.py:299]        █     █     █▄   ▄█
+(APIServer pid=20670) INFO 07-10 08:23:19 [utils.py:299]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.20.2
+(APIServer pid=20670) INFO 07-10 08:23:19 [utils.py:299]   █▄█▀ █     █     █     █  model   /models/Qwen3-30B-A3B
+(APIServer pid=20670) INFO 07-10 08:23:19 [utils.py:299]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=20670) INFO 07-10 08:23:19 [utils.py:299] 
+(APIServer pid=20670) INFO 07-10 08:23:19 [utils.py:233] non-default args: {'port': 8100, 'model': '/models/Qwen3-30B-A3B', 'trust_remote_code': True, 'dtype': 'bfloat16', 'max_model_len': 40960, 'enforce_eager': True, 'tensor_parallel_size': 2, 'gpu_memory_utilization': 0.85, 'max_num_batched_tokens': 16384, 'max_num_seqs': 128, 'kv_transfer_config': KVTransferConfig(kv_connector='AscendStoreConnector', engine_id='582d3c38-05f3-41f5-b02a-dc31c2fd47b4', kv_buffer_device='npu', kv_buffer_size=1000000000.0, kv_role='kv_both', kv_rank=None, kv_parallel_size=1, kv_ip='127.0.0.1', kv_port=14579, kv_connector_extra_config={'lookup_rpc_port': '0', 'backend': 'mooncake'}, kv_connector_module_path=None, enable_permute_local_kv=False, kv_load_failure_policy='fail')}
+(APIServer pid=20670) INFO 07-10 08:23:19 [model.py:555] Resolved architecture: Qwen3MoeForCausalLM
+(APIServer pid=20670) INFO 07-10 08:23:19 [model.py:1680] Using max model len 40960
+(APIServer pid=20670) INFO 07-10 08:23:19 [scheduler.py:239] Chunked prefill is enabled with max_num_batched_tokens=16384.
+(APIServer pid=20670) INFO 07-10 08:23:19 [vllm.py:840] Asynchronous scheduling is enabled.
+(APIServer pid=20670) WARNING 07-10 08:23:19 [vllm.py:896] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+(APIServer pid=20670) WARNING 07-10 08:23:19 [vllm.py:914] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(APIServer pid=20670) INFO 07-10 08:23:19 [kernel.py:205] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'])
+(APIServer pid=20670) INFO 07-10 08:23:19 [vllm.py:1089] Cudagraph is disabled under eager mode
+(APIServer pid=20670) INFO 07-10 08:23:19 [utils.py:169] No quantization signature detected from model files for "/models/Qwen3-30B-A3B". The model will be loaded as float. To force a quantization method, pass "--quantization <method>" explicitly.
+(APIServer pid=20670) WARNING 07-10 08:23:19 [platform.py:848] Parameter '--disable-cascade-attn' is a GPU-specific feature. Resetting to False for Ascend.
+(APIServer pid=20670) WARNING 07-10 08:23:19 [platform.py:937] Ignored parameter 'disable_flashinfer_prefill'. This is a GPU-specific feature not supported on Ascend. Resetting to False.
+(APIServer pid=20670) INFO 07-10 08:23:19 [ascend_config.py:688] Dynamic EPLB is False
+(APIServer pid=20670) INFO 07-10 08:23:19 [ascend_config.py:689] The number of redundant experts is 0
+(APIServer pid=20670) INFO 07-10 08:23:19 [platform.py:338] Compilation disabled, using eager mode by default
+(APIServer pid=20670) INFO 07-10 08:23:19 [utils.py:1333] Block size is set to 128 if prefix cache or chunked prefill is enabled.
+(APIServer pid=20670) INFO 07-10 08:23:19 [platform.py:581] Set PYTORCH_NPU_ALLOC_CONF=expandable_segments:True
+(APIServer pid=20670) WARNING 07-10 08:23:19 [vllm.py:1293] Turning off hybrid kv cache manager because `--kv-transfer-config` is set. This will reduce the performance of vLLM on LLMs with sliding window attention or Mamba attention. If you are a developer of kv connector, please consider supporting hybrid kv cache manager for your connector by making sure your connector is a subclass of `SupportsHMA` defined in kv_connector/v1/base.py and use --no-disable-hybrid-kv-cache-manager to start vLLM.
+(APIServer pid=20670) INFO 07-10 08:23:19 [compilation.py:303] Enabled custom fusions: norm_quant, act_quant
+INFO 07-10 08:23:26 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 07-10 08:23:26 [__init__.py:46] - ascend -> vllm_ascend:register
+INFO 07-10 08:23:26 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 07-10 08:23:26 [__init__.py:238] Platform plugin ascend is activated
+WARNING 07-10 08:23:31 [nixl_utils.py:34] NIXL is not available
+WARNING 07-10 08:23:31 [nixl_utils.py:44] NIXL agent config is not available
+(EngineCore pid=20712) 2026-07-10 08:23:31,179 - 20712 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.20.2+empty: default 1
+(EngineCore pid=20712) WARNING 07-10 08:23:31 [registry.py:945] Model architecture DeepseekV4ForCausalLM is already registered, and will be overwritten by the new model class vllm_ascend.models.deepseek_v4:AscendDeepseekV4ForCausalLM.
+(EngineCore pid=20712) WARNING 07-10 08:23:31 [registry.py:945] Model architecture DeepSeekV4MTPModel is already registered, and will be overwritten by the new model class vllm_ascend.models.deepseek_v4_mtp:DeepSeekV4MTP.
+(EngineCore pid=20712) INFO 07-10 08:23:31 [__init__.py:110] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader`
+(EngineCore pid=20712) INFO 07-10 08:23:31 [__init__.py:110] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork`
+(EngineCore pid=20712) INFO 07-10 08:23:31 [core.py:109] Initializing a V1 LLM engine (v0.20.2) with config: model='/models/Qwen3-30B-A3B', speculative_config=None, tokenizer='/models/Qwen3-30B-A3B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=2, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=True, quantization=None, quantization_config=None, enforce_eager=True, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=npu, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=/models/Qwen3-30B-A3B, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'vllm_ascend.compilation.compiler_interface.AscendCompiler', 'custom_ops': ['all'], 'ir_enable_torch_wrap': False, 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [16384], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 0, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native']), enable_flashinfer_autotune=True, moe_backend='auto')
+(EngineCore pid=20712) INFO 07-10 08:23:31 [multiproc_executor.py:139] DP group leader: node_rank=0, node_rank_within_dp=0, master_addr=127.0.0.1, mq_connect_ip=10.246.63.24 (local), world_size=2, local_world_size=2
+INFO 07-10 08:23:37 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 07-10 08:23:37 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 07-10 08:23:37 [__init__.py:46] - ascend -> vllm_ascend:register
+INFO 07-10 08:23:37 [__init__.py:46] - ascend -> vllm_ascend:register
+INFO 07-10 08:23:37 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 07-10 08:23:37 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 07-10 08:23:37 [__init__.py:238] Platform plugin ascend is activated
+INFO 07-10 08:23:37 [__init__.py:238] Platform plugin ascend is activated
+2026-07-10 08:23:42,032 - 20747 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.20.2+empty: default 1
+2026-07-10 08:23:42,431 - 20748 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.20.2+empty: default 1
+WARNING 07-10 08:23:42 [nixl_utils.py:34] NIXL is not available
+WARNING 07-10 08:23:42 [nixl_utils.py:44] NIXL agent config is not available
+WARNING 07-10 08:23:42 [registry.py:945] Model architecture DeepseekV4ForCausalLM is already registered, and will be overwritten by the new model class vllm_ascend.models.deepseek_v4:AscendDeepseekV4ForCausalLM.
+WARNING 07-10 08:23:42 [registry.py:945] Model architecture DeepSeekV4MTPModel is already registered, and will be overwritten by the new model class vllm_ascend.models.deepseek_v4_mtp:DeepSeekV4MTP.
+INFO 07-10 08:23:42 [__init__.py:110] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader`
+INFO 07-10 08:23:42 [__init__.py:110] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork`
+WARNING 07-10 08:23:42 [nixl_utils.py:34] NIXL is not available
+WARNING 07-10 08:23:42 [nixl_utils.py:44] NIXL agent config is not available
+WARNING 07-10 08:23:43 [registry.py:945] Model architecture DeepseekV4ForCausalLM is already registered, and will be overwritten by the new model class vllm_ascend.models.deepseek_v4:AscendDeepseekV4ForCausalLM.
+WARNING 07-10 08:23:43 [registry.py:945] Model architecture DeepSeekV4MTPModel is already registered, and will be overwritten by the new model class vllm_ascend.models.deepseek_v4_mtp:DeepSeekV4MTP.
+INFO 07-10 08:23:43 [__init__.py:110] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader`
+INFO 07-10 08:23:43 [__init__.py:110] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork`
+`Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+INFO 07-10 08:23:44 [ascend_config.py:688] Dynamic EPLB is False
+INFO 07-10 08:23:44 [ascend_config.py:689] The number of redundant experts is 0
+`Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+INFO 07-10 08:23:44 [ascend_config.py:688] Dynamic EPLB is False
+INFO 07-10 08:23:44 [ascend_config.py:689] The number of redundant experts is 0
+(Worker pid=20748) INFO 07-10 08:23:49 [parallel_state.py:1402] world_size=2 rank=1 local_rank=1 distributed_init_method=tcp://127.0.0.1:50895 backend=hccl
+(Worker pid=20747) INFO 07-10 08:23:49 [parallel_state.py:1402] world_size=2 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:50895 backend=hccl
+[rank1]:[W710 08:23:50.624921736 ProcessGroupGloo.cpp:511] Warning: Unable to resolve hostname to a (local) address. Using the loopback address as fallback. Manually set the network interface to bind to with GLOO_SOCKET_IFNAME. (function operator())
+[rank0]:[W710 08:23:50.625066827 ProcessGroupGloo.cpp:511] Warning: Unable to resolve hostname to a (local) address. Using the loopback address as fallback. Manually set the network interface to bind to with GLOO_SOCKET_IFNAME. (function operator())
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+(Worker pid=20747) INFO 07-10 08:23:50 [parallel_state.py:1715] rank 0 in world size 2 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank 0, EPLB rank N/A
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+(Worker_TP1 pid=20748) INFO 07-10 08:23:50 [model_runner_v1.py:3374] Starting to load model /models/Qwen3-30B-A3B...
+(Worker_TP0 pid=20747) INFO 07-10 08:23:50 [model_runner_v1.py:3374] Starting to load model /models/Qwen3-30B-A3B...
+(Worker_TP1 pid=20748) INFO 07-10 08:23:51 [weight_utils.py:874] Prefetching checkpoint files into page cache started (in background)
+(Worker_TP0 pid=20747) INFO 07-10 08:23:51 [weight_utils.py:904] Filesystem type for checkpoints: NFS. Checkpoint size: 56.87 GiB. Available RAM: 2938.78 GiB.
+(Worker_TP0 pid=20747) INFO 07-10 08:23:51 [weight_utils.py:874] Prefetching checkpoint files into page cache started (in background)
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards:   0% Completed | 0/16 [00:00<?, ?it/s]
+(Worker_TP1 pid=20748) INFO 07-10 08:23:52 [weight_utils.py:851] Prefetching checkpoint files: 10% (1/8)
+(Worker_TP1 pid=20748) INFO 07-10 08:23:55 [weight_utils.py:851] Prefetching checkpoint files: 20% (2/8)
+(Worker_TP1 pid=20748) INFO 07-10 08:23:55 [weight_utils.py:851] Prefetching checkpoint files: 30% (3/8)
+(Worker_TP1 pid=20748) INFO 07-10 08:23:55 [weight_utils.py:851] Prefetching checkpoint files: 40% (4/8)
+(Worker_TP1 pid=20748) INFO 07-10 08:23:55 [weight_utils.py:851] Prefetching checkpoint files: 50% (5/8)
+(Worker_TP1 pid=20748) INFO 07-10 08:23:55 [weight_utils.py:851] Prefetching checkpoint files: 60% (6/8)
+(Worker_TP0 pid=20747) INFO 07-10 08:23:55 [weight_utils.py:851] Prefetching checkpoint files: 10% (1/8)
+(Worker_TP1 pid=20748) INFO 07-10 08:23:55 [weight_utils.py:851] Prefetching checkpoint files: 70% (7/8)
+(Worker_TP1 pid=20748) INFO 07-10 08:23:55 [weight_utils.py:851] Prefetching checkpoint files: 80% (8/8)
+(Worker_TP1 pid=20748) INFO 07-10 08:23:55 [weight_utils.py:869] Prefetching checkpoint files into page cache finished in 4.67s
+(Worker_TP0 pid=20747) INFO 07-10 08:23:55 [weight_utils.py:851] Prefetching checkpoint files: 20% (2/8)
+(Worker_TP0 pid=20747) INFO 07-10 08:23:55 [weight_utils.py:851] Prefetching checkpoint files: 30% (3/8)
+(Worker_TP0 pid=20747) INFO 07-10 08:23:55 [weight_utils.py:851] Prefetching checkpoint files: 40% (4/8)
+(Worker_TP0 pid=20747) INFO 07-10 08:23:55 [weight_utils.py:851] Prefetching checkpoint files: 50% (5/8)
+(Worker_TP0 pid=20747) INFO 07-10 08:23:56 [weight_utils.py:851] Prefetching checkpoint files: 60% (6/8)
+(Worker_TP0 pid=20747) INFO 07-10 08:23:56 [weight_utils.py:851] Prefetching checkpoint files: 70% (7/8)
+(Worker_TP0 pid=20747) INFO 07-10 08:23:56 [weight_utils.py:851] Prefetching checkpoint files: 80% (8/8)
+(Worker_TP0 pid=20747) INFO 07-10 08:23:56 [weight_utils.py:869] Prefetching checkpoint files into page cache finished in 4.77s
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards:   6% Completed | 1/16 [00:05<01:15,  5.00s/it]
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards:  12% Completed | 2/16 [00:05<00:36,  2.63s/it]
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards:  19% Completed | 3/16 [00:06<00:24,  1.86s/it]
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards:  25% Completed | 4/16 [00:07<00:18,  1.53s/it]
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards:  31% Completed | 5/16 [00:08<00:14,  1.33s/it]
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards:  38% Completed | 6/16 [00:10<00:12,  1.26s/it]
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards:  44% Completed | 7/16 [00:11<00:11,  1.24s/it]
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards:  50% Completed | 8/16 [00:12<00:09,  1.18s/it]
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards:  56% Completed | 9/16 [00:13<00:07,  1.12s/it]
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards:  62% Completed | 10/16 [00:14<00:06,  1.08s/it]
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards:  69% Completed | 11/16 [00:15<00:05,  1.04s/it]
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards:  75% Completed | 12/16 [00:16<00:04,  1.02s/it]
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards:  81% Completed | 13/16 [00:17<00:03,  1.01s/it]
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards:  88% Completed | 14/16 [00:18<00:01,  1.04it/s]
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards:  94% Completed | 15/16 [00:18<00:00,  1.08it/s]
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards: 100% Completed | 16/16 [00:19<00:00,  1.42it/s]
+(Worker_TP0 pid=20747) Loading safetensors checkpoint shards: 100% Completed | 16/16 [00:19<00:00,  1.19s/it]
+(Worker_TP0 pid=20747) 
+(Worker_TP0 pid=20747) INFO 07-10 08:24:10 [default_loader.py:384] Loading weights took 19.08 seconds
+(Worker_TP0 pid=20747) INFO 07-10 08:24:11 [model_runner_v1.py:3421] Loading model weights took 28.4670 GB
+(Worker_TP1 pid=20748) INFO 07-10 08:24:12 [model_runner_v1.py:3421] Loading model weights took 28.4670 GB
+(Worker_TP0 pid=20747) INFO 07-10 08:24:18 [worker.py:394] Available KV cache memory: 21.75 GiB
+(EngineCore pid=20712) INFO 07-10 08:24:18 [kv_cache_utils.py:1708] GPU KV cache size: 475,136 tokens
+(EngineCore pid=20712) INFO 07-10 08:24:18 [kv_cache_utils.py:1709] Maximum concurrency for 40,960 tokens per request: 11.60x
+(Worker_TP1 pid=20748) INFO 07-10 08:24:18 [factory.py:64] Creating v1 connector with name: AscendStoreConnector and engine_id: 582d3c38-05f3-41f5-b02a-dc31c2fd47b4-89845a97744f428e84da65b60dcb3e88
+(Worker_TP1 pid=20748) WARNING 07-10 08:24:18 [base.py:189] Initializing KVConnectorBase_V1. This API is experimental and subject to change in the future as we iterate the design.
+(Worker_TP0 pid=20747) INFO 07-10 08:24:18 [factory.py:64] Creating v1 connector with name: AscendStoreConnector and engine_id: 582d3c38-05f3-41f5-b02a-dc31c2fd47b4-89845a97744f428e84da65b60dcb3e88
+(Worker_TP0 pid=20747) WARNING 07-10 08:24:18 [base.py:189] Initializing KVConnectorBase_V1. This API is experimental and subject to change in the future as we iterate the design.
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I0710 08:24:18.999161 20747 transfer_engine_impl.cpp:571] Metrics reporting is disabled (set MC_TE_METRIC=1 to enable)
+I0710 08:24:18.999192 20747 transfer_engine_impl.cpp:105] Transfer Engine parseHostNameWithPort. server_name: 10.246.63.24 port: 12001
+I0710 08:24:18.999305 20747 transfer_engine_impl.cpp:172] Transfer Engine RPC using P2P handshake, listening on 10.246.63.24:15214
+I0710 08:24:18.999485 20747 ascend_direct_transport.cpp:87] install AscendDirectTransport for: 10.246.63.24:15214
+I0710 08:24:18.999514 20747 ascend_direct_transport.cpp:581] Set device id to:14
+I0710 08:24:18.999519 20747 ascend_direct_transport.cpp:593] Find available between 21400 and 21500
+I0710 08:24:18.999584 20747 ascend_direct_transport.cpp:546] AscendDirectTransport set segment desc: host_ip=10.246.63.24, host_port=21471, deviceLogicId=0
+I0710 08:24:18.999603 20747 ascend_direct_transport.cpp:262] Set adxl engine name to 10.246.63.24:21471
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I0710 08:24:19.000259 20748 transfer_engine_impl.cpp:571] Metrics reporting is disabled (set MC_TE_METRIC=1 to enable)
+I0710 08:24:19.000283 20748 transfer_engine_impl.cpp:105] Transfer Engine parseHostNameWithPort. server_name: 10.246.63.24 port: 12001
+I0710 08:24:19.000351 20748 transfer_engine_impl.cpp:172] Transfer Engine RPC using P2P handshake, listening on 10.246.63.24:16674
+I0710 08:24:19.000551 20748 ascend_direct_transport.cpp:87] install AscendDirectTransport for: 10.246.63.24:16674
+I0710 08:24:19.000576 20748 ascend_direct_transport.cpp:581] Set device id to:15
+I0710 08:24:19.000581 20748 ascend_direct_transport.cpp:593] Find available between 21500 and 21600
+I0710 08:24:19.000634 20748 ascend_direct_transport.cpp:546] AscendDirectTransport set segment desc: host_ip=10.246.63.24, host_port=21515, deviceLogicId=1
+I0710 08:24:19.000646 20748 ascend_direct_transport.cpp:262] Set adxl engine name to 10.246.63.24:21515
+I0710 08:24:19.003464 20747 ascend_direct_transport.cpp:268] Success to initialize adxl engine:10.246.63.24:21471 with device_id:0, pid:20747
+I0710 08:24:19.003489 20747 ascend_direct_transport.cpp:120] Set connection timeout to:10000
+I0710 08:24:19.003492 20747 ascend_direct_transport.cpp:129] Set transfer timeout to:10000
+I0710 08:24:19.004240 21064 ascend_direct_transport.cpp:642] AscendDirectTransport query thread started
+I0710 08:24:19.005080 20748 ascend_direct_transport.cpp:268] Success to initialize adxl engine:10.246.63.24:21515 with device_id:1, pid:20748
+I0710 08:24:19.005112 20748 ascend_direct_transport.cpp:120] Set connection timeout to:10000
+I0710 08:24:19.005124 20748 ascend_direct_transport.cpp:129] Set transfer timeout to:10000
+I0710 08:24:19.006858 21083 ascend_direct_transport.cpp:642] AscendDirectTransport query thread started
+I0710 08:24:19.010262 20747 client_metric.cpp:80] Client metrics enabled (default enabled)
+I0710 08:24:19.011297 20747 ha_helper.cpp:20] Master view key: mooncake-store/mooncake/master_view
+I0710 08:24:19.011308 20747 client_service.cpp:47] client_id=7514191638372342439-2817214963913894292
+I0710 08:24:19.011312 20747 client_service.cpp:55] Client metrics enabled but reporting disabled (interval=0)
+I0710 08:24:19.013279 20748 client_metric.cpp:80] Client metrics enabled (default enabled)
+I0710 08:24:19.013321 20747 client_service.cpp:411] Storage root directory is not set. persisting data is disabled.
+I0710 08:24:19.013336 20747 client_service.cpp:445] Use existing transfer engine instance. Skip its initialization.
+I0710 08:24:19.014662 20748 ha_helper.cpp:20] Master view key: mooncake-store/mooncake/master_view
+I0710 08:24:19.014683 20748 client_service.cpp:47] client_id=17169178812096926292-8985830123812242305
+I0710 08:24:19.014686 20748 client_service.cpp:55] Client metrics enabled but reporting disabled (interval=0)
+I0710 08:24:19.035251 20747 real_client.cpp:212] Registering local memory: 1073741824 bytes
+I0710 08:24:19.035308 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12e480000000, length:1073741824, location:*, mem type:1
+I0710 08:24:19.035415 20747 real_client.cpp:236] Mounting segment: 322122547200 bytes, 322122547200 of 322122547200
+I0710 08:24:19.581637 20748 client_service.cpp:411] Storage root directory is not set. persisting data is disabled.
+I0710 08:24:19.581660 20748 client_service.cpp:445] Use existing transfer engine instance. Skip its initialization.
+I0710 08:24:19.598944 20748 real_client.cpp:212] Registering local memory: 1073741824 bytes
+I0710 08:24:19.598990 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12e480000000, length:1073741824, location:*, mem type:1
+I0710 08:24:19.599120 20748 real_client.cpp:236] Mounting segment: 322122547200 bytes, 322122547200 of 322122547200
+I0710 08:24:23.128369 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12e4c0000000, length:322122547200, location:*, mem type:1
+(Worker_TP0 pid=20747) INFO 07-10 08:24:23 [pool_worker.py:307] num_blocks: 3712
+(Worker_TP0 pid=20747) INFO 07-10 08:24:23 [pool_worker.py:312] block_shape: torch.Size([128, 2, 128])
+(Worker_TP0 pid=20747) INFO 07-10 08:24:23 [pool_worker.py:312] block_shape: torch.Size([128, 2, 128])
+(Worker_TP0 pid=20747) INFO 07-10 08:24:23 [pool_worker.py:316] Registering KV_Caches. use_mla: False, use_sparse: False, shape torch.Size([3712, 128, 2, 128])
+I0710 08:24:23.281041 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12d7db400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281127 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12da15a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281184 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12da58200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281204 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12da66c00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281222 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12da75600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281239 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12da84000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281258 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12da92a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281276 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12daa1400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281311 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12daafe00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281325 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dabe800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281340 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dacd200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281358 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dadbc00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281373 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12daea600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281389 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12daf9200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281404 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db07c00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281436 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db16600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281452 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db25000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281466 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db33a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281486 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db42400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281502 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db50e00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281514 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db5f800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281528 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db6e200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281543 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db7cc00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281556 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db8b600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281571 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db9a000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281585 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dba8a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281599 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dbb7400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281613 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dbc5e00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281628 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dbd4800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281642 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dbe3200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281656 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dbf1c00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281670 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc00600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281684 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc0f000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281698 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc1da00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281716 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc2c400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281730 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc3ae00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281744 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc49800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281761 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc58200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281774 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc66c00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281790 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc75600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281805 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc84000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281819 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc92a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281833 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dca1400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281849 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dcafe00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281863 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dcbe800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281883 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dccd200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281898 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dcdbc00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281910 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dcea600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281924 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dcf9000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281939 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd07a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281955 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd16400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281970 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd24e00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.281987 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd33800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282003 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd42200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282018 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd50c00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282034 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd5f600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282048 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd6e000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282063 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd7ca00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282079 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd8b400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282094 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd99e00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282114 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dda8800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282130 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12ddb7200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282143 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12ddc5c00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282157 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12ddd4600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282172 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dde3000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282187 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12ddf1a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282202 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de00400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282219 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de0ee00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282235 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de1d800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282251 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de2c200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282266 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de3ac00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282280 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de49600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282295 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de58000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282310 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de66a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282325 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de75400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282349 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de83e00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282364 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de92800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282378 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dea1200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282393 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12deafc00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282408 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12debe600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282423 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12decd000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282438 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dedba00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282454 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12deea400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282471 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12def8e00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282486 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df07800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282505 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df16200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282527 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df24c00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282542 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df33600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282557 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df42000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282574 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df50a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282594 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df5f400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282610 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df6de00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282626 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df7c800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282641 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df8b200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282656 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df99c00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.282671 20747 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dfa8600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.598199 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12e4c0000000, length:322122547200, location:*, mem type:1
+(Worker_TP1 pid=20748) INFO 07-10 08:24:23 [pool_worker.py:307] num_blocks: 3712
+(Worker_TP1 pid=20748) INFO 07-10 08:24:23 [pool_worker.py:312] block_shape: torch.Size([128, 2, 128])
+(Worker_TP1 pid=20748) INFO 07-10 08:24:23 [pool_worker.py:312] block_shape: torch.Size([128, 2, 128])
+(Worker_TP1 pid=20748) INFO 07-10 08:24:23 [pool_worker.py:316] Registering KV_Caches. use_mla: False, use_sparse: False, shape torch.Size([3712, 128, 2, 128])
+I0710 08:24:23.738186 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12d7db400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738257 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12da15a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738288 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12da58200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738305 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12da66c00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738323 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12da75600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738341 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12da84000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738358 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12da92a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738379 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12daa1400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738394 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12daafe00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738411 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dabe800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738426 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dacd200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738443 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dadbc00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738478 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12daea600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738495 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12daf9200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738511 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db07c00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738530 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db16600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738546 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db25000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738564 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db33a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738581 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db42400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738600 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db50e00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738616 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db5f800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738633 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db6e200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738651 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db7cc00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738665 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db8b600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738680 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12db9a000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738698 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dba8a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738713 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dbb7400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738729 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dbc5e00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738746 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dbd4800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738763 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dbe3200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738780 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dbf1c00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738796 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc00600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738811 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc0f000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738828 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc1da00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738847 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc2c400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738862 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc3ae00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738878 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc49800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738909 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc58200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738929 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc66c00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738945 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc75600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738962 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc84000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738979 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dc92a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.738994 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dca1400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739012 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dcafe00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739028 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dcbe800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739048 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dccd200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739065 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dcdbc00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739084 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dcea600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739100 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dcf9000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739121 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd07a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739137 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd16400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739154 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd24e00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739174 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd33800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739190 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd42200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739207 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd50c00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739221 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd5f600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739238 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd6e000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739253 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd7ca00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739270 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd8b400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739286 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dd99e00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739305 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dda8800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739320 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12ddb7200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739336 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12ddc5c00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739352 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12ddd4600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739372 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dde3000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739390 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12ddf1a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739406 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de00400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739424 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de0ee00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739441 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de1d800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739459 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de2c200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739475 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de3ac00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739491 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de49600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739507 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de58000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739523 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de66a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739540 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de75400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739571 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de83e00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739588 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12de92800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739605 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dea1200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739622 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12deafc00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739638 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12debe600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739655 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12decd000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739674 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dedba00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739691 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12deea400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739707 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12def8e00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739725 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df07800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739746 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df16200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739764 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df24c00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739782 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df33600000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739800 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df42000000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739818 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df50a00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739853 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df5f400000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739871 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df6de00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739890 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df7c800000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739909 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df8b200000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739926 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12df99c00000, length:243269632, location:*, mem type:0
+I0710 08:24:23.739944 20748 ascend_direct_transport.cpp:444] AscendDirectTransport register mem addr:0x12dfa8600000, length:243269632, location:*, mem type:0
+(Worker_TP0 pid=20747) INFO 07-10 08:24:23 [worker.py:546] Free memory on device (60.91/61.27 GiB) on startup. Desired GPU memory utilization is (0.85, 52.08 GiB). Actual usage: 28.47 GiB for weights, 1.37 GiB for peak activation, 0.49 GiB for non-torch memory, 0.0 GiB for NPU graph memory. Replace gpu_memory_utilization with `--kv-cache-memory=23198201344` (21.61 GiB) to fit into requested memory, or `--kv-cache-memory=32677189120` (30.43 GiB) to fully utilize NPU free memory. Current KV cache memory: 21.75 GiB.
+(Worker_TP1 pid=20748) INFO 07-10 08:24:23 [worker.py:546] Free memory on device (61.12/61.28 GiB) on startup. Desired GPU memory utilization is (0.85, 52.09 GiB). Actual usage: 28.47 GiB for weights, 1.37 GiB for peak activation, 0.49 GiB for non-torch memory, 0.0 GiB for NPU graph memory. Replace gpu_memory_utilization with `--kv-cache-memory=23205835468` (21.61 GiB) to fit into requested memory, or `--kv-cache-memory=32909694464` (30.65 GiB) to fully utilize NPU free memory. Current KV cache memory: 21.76 GiB.
+(Worker_TP1 pid=20748) INFO 07-10 08:24:27 [cpu_binding.py:328] [cpu_bind_mode] mode=global_slice rank=1 visible_npus=[14, 15]
+(Worker_TP1 pid=20748) INFO 07-10 08:24:27 [cpu_binding.py:388] The CPU allocation plan is as follows:
+(Worker_TP1 pid=20748) INFO 07-10 08:24:27 [cpu_binding.py:393] NPU15: main=[602 603 604 605 606 607 608 609 610 611 612 613 614 615 616 617 618 619 620 621 622 623 624 625 626 627 628 629 630 631 632 633 634 635 636 637]  acl=[638]  release=[[639]]
+(Worker_TP1 pid=20748) INFO 07-10 08:24:27 [cpu_binding.py:415] [migrate] NPU:15 -> NUMA [3]
+(Worker_TP0 pid=20747) INFO 07-10 08:24:27 [cpu_binding.py:328] [cpu_bind_mode] mode=global_slice rank=0 visible_npus=[14, 15]
+(Worker_TP0 pid=20747) INFO 07-10 08:24:27 [cpu_binding.py:388] The CPU allocation plan is as follows:
+(Worker_TP0 pid=20747) INFO 07-10 08:24:27 [cpu_binding.py:393] NPU14: main=[562 563 564 565 566 567 568 569 570 571 572 573 574 575 576 577 578 579 580 581 582 583 584 585 586 587 588 589 590 591 592 593 594 595 596 597]  acl=[598]  release=[[599]]
+(Worker_TP0 pid=20747) INFO 07-10 08:24:27 [cpu_binding.py:415] [migrate] NPU:14 -> NUMA [3]
+(Worker_TP0 pid=20747) INFO 07-10 08:24:29 [cpu_binding.py:510] NPU14(PCI 0000:81:00.0): sq_send_trigger_irq IRQ_ID=5376 -> CPU560, cq_update_irq IRQ_ID=5377 -> CPU561
+(Worker_TP1 pid=20748) INFO 07-10 08:24:32 [cpu_binding.py:510] NPU15(PCI 0000:83:00.0): sq_send_trigger_irq IRQ_ID=5634 -> CPU600, cq_update_irq IRQ_ID=5635 -> CPU601
+(EngineCore pid=20712) INFO 07-10 08:24:32 [core.py:306] init engine (profile, create kv cache, warmup model) took 19.56 s
+(EngineCore pid=20712) INFO 07-10 08:24:33 [factory.py:64] Creating v1 connector with name: AscendStoreConnector and engine_id: 582d3c38-05f3-41f5-b02a-dc31c2fd47b4-89845a97744f428e84da65b60dcb3e88
+(EngineCore pid=20712) WARNING 07-10 08:24:33 [base.py:189] Initializing KVConnectorBase_V1. This API is experimental and subject to change in the future as we iterate the design.
+(EngineCore pid=20712) INFO 07-10 08:24:34 [vllm.py:840] Asynchronous scheduling is enabled.
+(EngineCore pid=20712) WARNING 07-10 08:24:34 [vllm.py:896] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+(EngineCore pid=20712) WARNING 07-10 08:24:34 [vllm.py:914] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore pid=20712) INFO 07-10 08:24:34 [kernel.py:205] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'])
+(EngineCore pid=20712) INFO 07-10 08:24:34 [vllm.py:1089] Cudagraph is disabled under eager mode
+(EngineCore pid=20712) INFO 07-10 08:24:34 [utils.py:169] No quantization signature detected from model files for "/models/Qwen3-30B-A3B". The model will be loaded as float. To force a quantization method, pass "--quantization <method>" explicitly.
+(EngineCore pid=20712) INFO 07-10 08:24:34 [ascend_config.py:688] Dynamic EPLB is False
+(EngineCore pid=20712) INFO 07-10 08:24:34 [ascend_config.py:689] The number of redundant experts is 0
+(EngineCore pid=20712) INFO 07-10 08:24:34 [platform.py:338] Compilation disabled, using eager mode by default
+(EngineCore pid=20712) INFO 07-10 08:24:34 [platform.py:581] Set PYTORCH_NPU_ALLOC_CONF=expandable_segments:True
+(EngineCore pid=20712) INFO 07-10 08:24:34 [compilation.py:303] Enabled custom fusions: norm_quant, act_quant
+(APIServer pid=20670) INFO 07-10 08:24:34 [api_server.py:598] Supported tasks: ['generate']
+(APIServer pid=20670) WARNING 07-10 08:24:34 [model.py:1437] Default vLLM sampling parameters have been overridden by the model's `generation_config.json`: `{'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}`. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+(APIServer pid=20670) INFO 07-10 08:24:35 [hf.py:314] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+(APIServer pid=20670) INFO 07-10 08:24:35 [api_server.py:602] Starting vLLM server on http://0.0.0.0:8100
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:37] Available routes are:
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /openapi.json, Methods: GET, HEAD
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /docs, Methods: GET, HEAD
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /docs/oauth2-redirect, Methods: GET, HEAD
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /redoc, Methods: GET, HEAD
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /tokenize, Methods: POST
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /detokenize, Methods: POST
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /load, Methods: GET
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /version, Methods: GET
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /health, Methods: GET
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /metrics, Methods: GET
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /v1/models, Methods: GET
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /ping, Methods: GET
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /ping, Methods: POST
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /invocations, Methods: POST
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /v1/chat/completions, Methods: POST
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /v1/chat/completions/batch, Methods: POST
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /v1/responses, Methods: POST
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /v1/responses/{response_id}, Methods: GET
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /v1/responses/{response_id}/cancel, Methods: POST
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /v1/completions, Methods: POST
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /v1/messages, Methods: POST
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /v1/messages/count_tokens, Methods: POST
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /inference/v1/generate, Methods: POST
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /scale_elastic_ep, Methods: POST
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /is_scaling_elastic_ep, Methods: POST
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /generative_scoring, Methods: POST
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /v1/chat/completions/render, Methods: POST
+(APIServer pid=20670) INFO 07-10 08:24:35 [launcher.py:46] Route: /v1/completions/render, Methods: POST
+(APIServer pid=20670) INFO:     Started server process [20670]
+(APIServer pid=20670) INFO:     Waiting for application startup.
+(APIServer pid=20670) INFO:     Application startup complete.
+(APIServer pid=20670) INFO:     127.0.0.1:53826 - "GET /health HTTP/1.1" 200 OK
+(APIServer pid=20670) INFO:     127.0.0.1:53836 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=20670) INFO 07-10 08:24:45 [loggers.py:271] Engine 000: Avg prompt throughput: 1.2 tokens/s, Avg generation throughput: 4.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%, External prefix cache hit rate: 0.0%
+(APIServer pid=20670) INFO 07-10 08:24:55 [loggers.py:271] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%, External prefix cache hit rate: 0.0%
+/usr/local/python3.11.15/lib/python3.11/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 2 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/usr/local/python3.11.15/lib/python3.11/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 4 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

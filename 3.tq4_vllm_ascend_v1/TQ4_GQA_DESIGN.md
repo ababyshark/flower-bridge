@@ -215,15 +215,15 @@ base_slot_bytes       = align_up(128 + 2, 64)        = 192 bytes
 ### 4.2 Codebook 与数据流
 
 ```
-train_codebook.py
+phase1_codebook/train_codebook.py
   ├── 训练：Lloyd-Max 迭代 → centroids [16] fp32 sorted
   ├── centSigned = centroids rotated by 8 (仅用于 AscendC 内核的 int4b_t 解包阶段)
   │
-  ├── 输出: tq4_centroids_gqa.pt  → Python 端加载，tq_gqa.py 传给 kernel
+  ├── 输出: phase1_codebook/tq4_centroids_gqa.pt  → Python 端加载，tq_gqa.py 传给 kernel
   │         └─ {"centroids": [16] fp32, "cent_signed": [16] fp32}
   │         ★ 未来需扩展到 head_dim=256，产出 tq4_centroids_gqa_256.pt
   │
-  └── 输出: tq4_centroids_gqa.h   → 编译时可选 include，供内核静态链接
+  └── 输出: phase1_codebook/tq4_centroids_gqa.h   → 编译时可选 include，供内核静态链接
 
 Python → kernel 调用链:
   tq_gqa.compress_kernel(x)
@@ -306,15 +306,21 @@ vllm-ascend/
 
 ```
 3.tq4_vllm_ascend_v1/
-├── TQ4_GQA_DESIGN.md         # 本文件
-├── TRAINING_RESULT.md         # Codebook 训练结果（当前仅 head_dim=128）
-├── train_codebook.py          # Codebook 训练脚本（需扩展支持 head_dim=256）
-├── tq4_centroids_gqa.pt       # head_dim=128 码本权重
-├── tq4_centroids_gqa.h        # head_dim=128 AscendC 常量头文件
-├── deploy_30B.sh              # 30B 模型部署脚本
-├── deploy_35B.sh              # 35B 模型部署脚本
-├── benchmark.sh               # 性能 benchmark
-└── smoke_test.sh              # 冒烟测试
+├── TQ4_GQA_DESIGN.md           # 本文件
+├── deploy_30B.sh                # 30B 模型部署脚本
+├── deploy_35B.sh                # 35B 模型部署脚本
+├── benchmark.sh                 # 性能 benchmark
+├── smoke_test.sh                # 冒烟测试
+├── tq_gqa.py                    # GQA TQ4 Python 封装
+├── test_tq4_ops.py              # 算子测试
+├── test_tq_gqa_unittest.py      # 单元测试
+├── build.sh / install.sh        # 编译安装脚本
+│
+└── phase1_codebook/             # Phase 1 — Codebook 训练
+    ├── TRAINING_RESULT.md       # 训练结果（当前仅 head_dim=128）
+    ├── train_codebook.py        # 训练脚本（需扩展支持 head_dim=256）
+    ├── tq4_centroids_gqa.pt     # head_dim=128 码本权重
+    └── tq4_centroids_gqa.h      # head_dim=128 AscendC 常量头文件
 ```
 
 ### 5.3 修改文件（最小化改动）
@@ -690,7 +696,7 @@ bash smoke_test.sh
 
 | 阶段 | 任务 | 产出物 | 状态 | 备注 |
 |------|------|--------|------|------|
-| Phase 1 | Codebook 训练 (128) | `tq4_centroids_gqa.pt`, `.h` | ✅ 已完成 | `train_codebook.py` |
+| Phase 1 | Codebook 训练 (128) | `phase1_codebook/tq4_centroids_gqa.pt`, `.h` | ✅ 已完成 | `phase1_codebook/train_codebook.py` |
 | Phase 1b | Codebook 训练 (256) | `tq4_centroids_gqa_256.pt`, `.h` | ❌ 待实现 | 扩展 train_codebook.py 支持自定义 head_dim |
 | Phase 2 | `tq_gqa_compress` AscendC 算子 | `csrc/tq_gqa_compress/` | ✅ 已完成 | 已支持 head_dim=128；验证 head_dim=256 |
 | Phase 2b | compress kernel CANN 9.0.0 迁移 | `tq_gqa_compress.h` | ❌ 待实现 | `CompareScalar` → `Compares` |
@@ -741,16 +747,16 @@ TQ4 的 compress/decompress 算子需要确认是否支持 ACL 图捕获：
 
 ### 11.7 centroids 的双重维护
 
-- `tq4_centroids_gqa.pt`（和未来的 `_256.pt`）：Python 端加载，运行时传给 kernel（权威来源）
-- `tq4_centroids_gqa.h`（和未来的 `_256.h`）：C++ 编译时常量，仅供 kernel 静态链接参考
+- `phase1_codebook/tq4_centroids_gqa.pt`（和未来的 `_256.pt`）：Python 端加载，运行时传给 kernel（权威来源）
+- `phase1_codebook/tq4_centroids_gqa.h`（和未来的 `_256.h`）：C++ 编译时常量，仅供 kernel 静态链接参考
 
-两者由 `train_codebook.py` 同一次运行产出，重训练时必须同时更新。
+两者由 `phase1_codebook/train_codebook.py` 同一次运行产出，重训练时必须同时更新。
 
 ### 11.8 两个模型的 head_dim 不同 → 需要两个 Codebook
 
 | head_dim | 模型 | slot_bytes | centroids 文件 |
 |----------|------|-----------|---------------|
-| 128 | 30B (48 层) | 128B | `tq4_centroids_gqa.pt` ✅ |
+| 128 | 30B (48 层) | 128B | `phase1_codebook/tq4_centroids_gqa.pt` ✅ |
 | 256 | 35B (10 层) | 192B | `tq4_centroids_gqa_256.pt` ❌ |
 
 `get_centroids(head_dim, device)` 已支持按 head_dim key 缓存，自动加载对应 `.pt`。需添加 `_256.pt` 的路径映射和 fallback 训练逻辑到 `tq_gqa.py`。
